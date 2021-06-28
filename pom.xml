@@ -34,7 +34,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!-- Dependency to swagger documentation -->
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-ui</artifactId>
@@ -48,6 +47,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<!-- Configuration to Azure deployment -->
 			<plugin>
 				<groupId>com.microsoft.azure</groupId>
 				<artifactId>azure-webapp-maven-plugin</artifactId>
@@ -55,7 +55,7 @@
 				<configuration>
 					<schemaVersion>v2</schemaVersion>
 					<resourceGroup>maven-plugin</resourceGroup>
-					<appName>QR-Generator</appName>
+					<appName>quasar-fire-application</appName>
 					<region>East US</region>
 					<runtime>
 						<os>linux</os>
