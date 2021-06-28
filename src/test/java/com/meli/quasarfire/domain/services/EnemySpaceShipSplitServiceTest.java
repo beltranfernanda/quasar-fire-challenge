@@ -12,13 +12,13 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import com.meli.quasarfire.adapters.infrastructure.SatelliteRepositoryStorage;
 import com.meli.quasarfire.domain.agregate.EnemySpaceInformationFacade;
 import com.meli.quasarfire.domain.exceptions.ArraysLengthMismatchException;
 import com.meli.quasarfire.domain.exceptions.NotEnoughInformationException;
 import com.meli.quasarfire.domain.exceptions.PointNotFoundException;
 import com.meli.quasarfire.domain.model.Position;
 import com.meli.quasarfire.domain.model.Satellite;
+import com.meli.quasarfire.domain.repository.SatelliteRepository;
 
 /**
  * Test cases for EnemySpaceShipSplitService
@@ -27,15 +27,15 @@ import com.meli.quasarfire.domain.model.Satellite;
  * @since 0.0.1 2021/06/27
  */
 class EnemySpaceShipSplitServiceTest {
-	private static SatelliteRepositoryStorage satelliteRepositoryStorage;
+	private static SatelliteRepository satelliteRepository;
 	private static EnemySpaceShipSplitService enemySpaceShipSplitService;
 	private static EnemySpaceInformationFacade enemyShipInformation;
 	
 	@BeforeAll
     public static void setUp() {
-		satelliteRepositoryStorage = Mockito.mock(SatelliteRepositoryStorage.class);
+		satelliteRepository = Mockito.mock(SatelliteRepository.class);
 		enemyShipInformation = new EnemySpaceInformationFacade();
-		enemySpaceShipSplitService = new EnemySpaceShipSplitService(enemyShipInformation,satelliteRepositoryStorage);
+		enemySpaceShipSplitService = new EnemySpaceShipSplitService(enemyShipInformation,satelliteRepository);
 	}
 	
 	@Test
@@ -46,8 +46,8 @@ class EnemySpaceShipSplitServiceTest {
 		satelliteList.add(satelliteBuilder.setName("Sato").setdistance((float) 583.095189).build());
 		satelliteList.add(satelliteBuilder.setName("Kenobi").setdistance(500).build());
 		satelliteList.add(satelliteBuilder.setName("Skywalker").setdistance((float) 141.421356).build());
-		Mockito.doNothing().when(satelliteRepositoryStorage).saveSatellite(satelliteBuilder.build());
-		Mockito.doReturn(satelliteList).when(satelliteRepositoryStorage).getSatellites();
+		Mockito.doNothing().when(satelliteRepository).saveSatellite(satelliteBuilder.build());
+		Mockito.doReturn(satelliteList).when(satelliteRepository).getSatellites();
 		Position.Builder positionBuilder = new Position.Builder();
 		//When
 		enemySpaceShipSplitService.storeSatellite(satelliteList.get(0));
@@ -67,8 +67,8 @@ class EnemySpaceShipSplitServiceTest {
 		satelliteList.add(satelliteBuilder.setName("Sato").setMessage(new String[] {"Hello","",""}).build());
 		satelliteList.add(satelliteBuilder.setName("Kenobi").setMessage(new String[] {"","world",""}).build());
 		satelliteList.add(satelliteBuilder.setName("Skywalker").setMessage(new String[] {"","","forever"}).build());
-		Mockito.doNothing().when(satelliteRepositoryStorage).saveSatellite(satelliteBuilder.build());
-		Mockito.doReturn(satelliteList).when(satelliteRepositoryStorage).getSatellites();
+		Mockito.doNothing().when(satelliteRepository).saveSatellite(satelliteBuilder.build());
+		Mockito.doReturn(satelliteList).when(satelliteRepository).getSatellites();
 		//When
 		enemySpaceShipSplitService.storeSatellite(satelliteList.get(0));
 		enemySpaceShipSplitService.storeSatellite(satelliteList.get(1));
@@ -86,8 +86,8 @@ class EnemySpaceShipSplitServiceTest {
 		Satellite.Builder satelliteBuilder = new Satellite.Builder();
 		satelliteList.add(satelliteBuilder.setName("Sato").setdistance((float) 583.095189).build());
 		satelliteList.add(satelliteBuilder.setName("Kenobi").setdistance(500).build());
-		Mockito.doNothing().when(satelliteRepositoryStorage).saveSatellite(satelliteBuilder.build());
-		Mockito.doReturn(satelliteList).when(satelliteRepositoryStorage).getSatellites();
+		Mockito.doNothing().when(satelliteRepository).saveSatellite(satelliteBuilder.build());
+		Mockito.doReturn(satelliteList).when(satelliteRepository).getSatellites();
 		//When
 		enemySpaceShipSplitService.storeSatellite(satelliteList.get(0));
 		enemySpaceShipSplitService.storeSatellite(satelliteList.get(1));
@@ -102,8 +102,8 @@ class EnemySpaceShipSplitServiceTest {
 		Satellite.Builder satelliteBuilder = new Satellite.Builder();
 		satelliteList.add(satelliteBuilder.setName("Kenobi").setMessage(new String[] {"","world",""}).build());
 		satelliteList.add(satelliteBuilder.setName("Skywalker").setMessage(new String[] {"","","forever"}).build());
-		Mockito.doNothing().when(satelliteRepositoryStorage).saveSatellite(satelliteBuilder.build());
-		Mockito.doReturn(satelliteList).when(satelliteRepositoryStorage).getSatellites();
+		Mockito.doNothing().when(satelliteRepository).saveSatellite(satelliteBuilder.build());
+		Mockito.doReturn(satelliteList).when(satelliteRepository).getSatellites();
 		//When
 		enemySpaceShipSplitService.storeSatellite(satelliteList.get(0));
 		enemySpaceShipSplitService.storeSatellite(satelliteList.get(1));

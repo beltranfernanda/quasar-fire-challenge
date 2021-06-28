@@ -40,15 +40,6 @@ public class TopSecretResponseDto {
 		return position;
 	}
 	/**
-	 * @param position Set new value for field position
-	 * @author Maria Fernanda Velandia
-	 * @version 0.0.1 2021/06/27
-	 * @since 0.0.1 2021/06/27
-	 */
-	public void setPosition(Position position) {
-		this.position = position;
-	}
-	/**
 	 * @return Return value of field message
 	 * @author Maria Fernanda Velandia
 	 * @version 0.0.1 2021/06/27
@@ -57,21 +48,39 @@ public class TopSecretResponseDto {
 	public String getMessage() {
 		return message;
 	}
-	/**
-	 * @param message Set new value for field message
-	 * @author Maria Fernanda Velandia
-	 * @version 0.0.1 2021/06/27
-	 * @since 0.0.1 2021/06/27
-	 */
-	public void setMessage(String message) {
-		this.message = message;
-	}
-	
 	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
+	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
-	public String toString() {
-		return "TopSecretResponseDto [position=" + position + ", message=" + message + "]";
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((message == null) ? 0 : message.hashCode());
+		result = prime * result + ((position == null) ? 0 : position.hashCode());
+		return result;
+	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		TopSecretResponseDto other = (TopSecretResponseDto) obj;
+		if (message == null) {
+			if (other.message != null)
+				return false;
+		} else if (!message.equals(other.message))
+			return false;
+		if (position == null) {
+			if (other.position != null)
+				return false;
+		} else if (!position.equals(other.position))
+			return false;
+		return true;
 	}
 }

@@ -42,11 +42,35 @@ public class TopSecretRequestDto {
 		this.satellites = satellites;
 	}
 
+
 	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
+	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
-	public String toString() {
-		return "TopSecretRequestDto [satellites=" + satellites + "]";
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((satellites == null) ? 0 : satellites.hashCode());
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		TopSecretRequestDto other = (TopSecretRequestDto) obj;
+		if (satellites == null) {
+			if (other.satellites != null)
+				return false;
+		} else if (!satellites.equals(other.satellites))
+			return false;
+		return true;
 	}
 }
