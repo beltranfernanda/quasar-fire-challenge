@@ -1,3 +1,4 @@
+
 # Operación Quasar Fire :rocket:
 ## Desafio a completar :muscle:
 Han Solo ha sido recientemente nombrado General de la Alianza
@@ -10,7 +11,16 @@ manifiesto de la nave es ultra clasificado, pero se rumorea que
 transporta raciones y armamento para una legión entera.
 ## Propuesta 
 El objetivo fue crear un programa que permitiera retornar la fuente y el contenido del mensaje de auxilio de la nave enemiga, para ello, como primer paso fue necesario triangular la posición dibujando circunferencias con respecto a tres coordenadas de tres satelites (Sato, Skywalker y  Kenobi) dados y tres distancias (radios), hallando la posición solo si las tres circunferencias dibujadas se interceptaban en un punto (coordenadas de la nave enemiga). Para ver la explicación matemática de la triangulación [clic aquí](./Trilateration.md). 
-Para la arquitectura de la aplicación se usó Hexagonal Architecture, el detalle de la implementación lo puedes ver [aquí](./Architecture.md).
+## Arquitectura
+Para la arquitectura de la aplicación se usó Hexagonal Architecture. En la capa de dominio se implementó la lógica relacionada con la triangulación de la posición de la nave enemiga y el descifrado del mensaje de ayuda. 
+
+Se definieron tres puertos dos para los servicios y uno para el manejo de los datos, puertos que los adaptadores de la capa rest e infraestructura respectivamente usaron para acceder a las funcionalidades que la capa de dominio les expone. A continuación se encuentra la representación de la arquitectura descrita anteriormente.
+
+
+![Imagen de la arquitectura](./images/architecture.png)
+
+
+Los adaptadores corresponden a los servicios rest expuestos mediante Springboot y una implementación del manejo de datos que almacena los satelites en una lista.
 
 ## Versión en vivo
 Puedes ver la versión en vivo [aquí](https://quasar-fire-application.azurewebsites.net/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config) .
