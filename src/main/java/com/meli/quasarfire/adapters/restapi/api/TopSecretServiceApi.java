@@ -14,11 +14,12 @@ import com.meli.quasarfire.adapters.restapi.exceptions.NotPossibleInterceptShipI
 public interface TopSecretServiceApi {
 	
 	/**
+	 * Used to determine enemy spaceship information through domain layer
 	 * @author Maria Fernanda Velandia
 	 * @version 0.0.1 2021/06/27
 	 * @since 0.0.1 2021/06/27
 	 * @param topSecretRequestDto
-	 * @return
+	 * @return topSecretResponseDto with enemy spaceship message and position 
 	 */
 	TopSecretResponseDto getSpacialEnemyShipInformationService(TopSecretRequestDto topSecretRequestDto) throws NotPossibleInterceptShipInformationException, IncorrectInformationException;
 

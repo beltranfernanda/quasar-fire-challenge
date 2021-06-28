@@ -8,6 +8,9 @@ package com.meli.quasarfire.adapters.infrastructure;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.stereotype.Component;
+
 import com.meli.quasarfire.domain.model.Satellite;
 import com.meli.quasarfire.domain.repository.SatelliteRepository;
 
@@ -17,6 +20,7 @@ import com.meli.quasarfire.domain.repository.SatelliteRepository;
  * @version 0.0.1 2021/06/27
  * @since 0.0.1 2021/06/27
  */
+@Component
 public class SatelliteRepositoryStorage implements SatelliteRepository{
 		
 	private List<Satellite> satelliteList;

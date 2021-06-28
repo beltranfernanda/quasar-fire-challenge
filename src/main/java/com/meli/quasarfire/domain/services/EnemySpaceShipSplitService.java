@@ -9,6 +9,7 @@ package com.meli.quasarfire.domain.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.meli.quasarfire.domain.agregate.EnemySpaceInformationFacade;
 import com.meli.quasarfire.domain.enums.MessageExceptions;
@@ -25,6 +26,7 @@ import com.meli.quasarfire.domain.repository.SatelliteRepository;
  * @version 0.0.1 2021/06/27
  * @since 0.0.1 2021/06/27
  */
+@Component
 public class EnemySpaceShipSplitService {
 	
 	private EnemySpaceInformationFacade enemyShipInformation;

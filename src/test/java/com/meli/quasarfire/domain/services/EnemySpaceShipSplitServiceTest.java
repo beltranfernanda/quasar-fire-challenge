@@ -28,7 +28,7 @@ import com.meli.quasarfire.domain.repository.SatelliteRepository;
  * @version 0.0.1 2021/06/27
  * @since 0.0.1 2021/06/27
  */
-public class EnemySpaceShipSplitServiceTest {
+class EnemySpaceShipSplitServiceTest {
 	
 	@MockBean
 	private SatelliteRepository satelliteRepository;
