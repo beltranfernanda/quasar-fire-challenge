@@ -7,7 +7,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.5.2</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.meli</groupId>
 	<artifactId>quasarfire</artifactId>
@@ -37,7 +37,7 @@
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-ui</artifactId>
-			<version>1.5.2</version>
+			<version>1.8.0</version>
 		</dependency>
 	</dependencies>
 
@@ -60,7 +60,7 @@
 					<runtime>
 						<os>linux</os>
 						<javaVersion>jre8</javaVersion>
-						<webContainer></webContainer>
+						<webContainer/>
 					</runtime>
 					<deployment>
 						<resources>
